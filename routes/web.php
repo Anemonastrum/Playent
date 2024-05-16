@@ -22,4 +22,5 @@ Route::delete('playstation/{invent}/destroyinvent', 'App\Http\Controllers\Playst
 Route::resource('playstation', 'App\Http\Controllers\PlaystationController');
 Route::resource('paket', 'App\Http\Controllers\PaketController');
 Route::resource('rental', 'App\Http\Controllers\RentalController');
+Route::resource('transaction', 'App\Http\Controllers\TransactionController');
 

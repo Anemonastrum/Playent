@@ -9,7 +9,7 @@
                 <img src="../assets/icons/list.svg" alt="Menu" style="width: 25px;">
             </button>
             <div class="logo">
-                <img src="../assets/icons/logo.png" alt="Header Logo" class="logo-img">
+                <img src="../assets/icons/logo.svg" alt="Header Logo" class="logo-img">
                 <h1 class="logo-text">{{ config('app.name', 'Laravel') }}</h1>
             </div>
         </div>
@@ -44,7 +44,7 @@
         <a href="{{ route('rental.index')}}" class="list-group-item list-group-item-action sidebar-item active"><i class="fas fa-gamepad fa-fw me-4"></i>Rental</a>
         <a href="{{ route('playstation.index') }}" class="list-group-item list-group-item-action sidebar-item"><i class="fas fa-plus fa-fw me-4"></i>Inventaris</a>
         <a href="{{ route('paket.index') }}" class="list-group-item list-group-item-action sidebar-item"><i class="fas fa-gift fa-fw me-4"></i>Paket</a>
-        <a href="#" class="list-group-item list-group-item-action sidebar-item"><i class="fas fa-list fa-fw me-4"></i>Log</a>
+        <a href="{{ route('transaction.index') }}" class="list-group-item list-group-item-action sidebar-item"><i class="fas fa-list fa-fw me-4"></i>Log</a>
         <a href="#" id="logout-link" class="list-group-item list-group-item-action sidebar-item"><i class="fas fa-sign-out fa-fw me-4"></i>Logout</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
@@ -67,7 +67,7 @@
         <h2 class="mb-3">Daftar Rental</h2>
 
         <!-- Tambahkan tombol untuk membuat rental baru -->
-        <a href="{{ route('rental.create') }}" class="btn btn-primary mb-3">Tambah Bilik Baru</a>
+        <a href="{{ route('rental.create') }}" class="btn btn-primary mb-3">Tambah Rental Baru</a>
 
         <!-- Tampilkan daftar rental jika ada -->
         @if($rentals->isEmpty())

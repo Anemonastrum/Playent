@@ -42,8 +42,8 @@
         <a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action sidebar-item"><i class="fas fa-home fa-fw me-4"></i>Dashboard</a>
         <a href="{{ route('rental.index') }}" class="list-group-item list-group-item-action sidebar-item"><i class="fas fa-gamepad fa-fw me-4"></i>Rental</a>
         <a href="{{ route('playstation.index') }}" class="list-group-item list-group-item-action sidebar-item"><i class="fas fa-plus fa-fw me-4"></i>Inventaris</a>
-        <a href="{{ route('paket.index') }}" class="list-group-item list-group-item-action sidebar-item active"><i class="fas fa-gift fa-fw me-4 active"></i>Paket</a>
-        <a href="{{ route('transaction.index') }}" class="list-group-item list-group-item-action sidebar-item"><i class="fas fa-list fa-fw me-4"></i>Log</a>
+        <a href="{{ route('paket.index') }}" class="list-group-item list-group-item-action sidebar-item"><i class="fas fa-gift fa-fw me-4 active"></i>Paket</a>
+        <a href="{{ route('transaction.index') }}" class="list-group-item list-group-item-action sidebar-item active"><i class="fas fa-list fa-fw me-4"></i>Log</a>
         <a href="#" id="logout-link" class="list-group-item list-group-item-action sidebar-item"><i class="fas fa-sign-out fa-fw me-4"></i>Logout</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
@@ -63,39 +63,31 @@
 @section('content')
 <div id="content" class="content-t flex-grow-1 p-4">
 
-    <h2 class="mb-3">Paket</h2>
+    <h2 class="mb-3">Transaksi berhasil</h2>
 
     <div class="row justify-content-center">
 
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('paket.create') }}" class="btn btn-primary mb-3">Tambah Paket</a>
                 <table class="table">
                     <thead>
                         <tr>
                             <th>Nomor</th>
-                            <th>Nama Paket</th>
-                            <th>Waktu</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Notelp</th>
                             <th>Harga</th>
-                            <th>Action</th>
+                            <th>Paket</th>
                         </tr>
                     </thead>
                     <tbody>
                         @php $counter = 1 @endphp
-                        @foreach($pakets as $paket)
+                        @foreach($transactions as $transaction)
                         <tr>
                             <td>{{ $counter++ }}</td>
-                            <td>{{ $paket->paket_name }}</td>
-                            <td>{{ $paket->waktu }}</td>
-                            <td>{{ $paket->harga }}</td>
-                            <td>
-                                <a href="{{ route('paket.edit', $paket) }}" class="btn btn-sm btn-primary">Edit</a>
-                                <form action="{{ route('paket.destroy', $paket) }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
-                                </form>
-                            </td>
+                            <td>{{ $transaction->nama_pelanggan }}</td>
+                            <td>{{ $transaction->notelp }}</td>
+                            <td>{{ $transaction->harga }}</td>
+                            <td>{{ $transaction->paket }}</td>
                         </tr>
                         @endforeach
                     </tbody>

@@ -67,7 +67,7 @@
         <h2 class="mb-3">Daftar Rental</h2>
 
         <!-- Tambahkan tombol untuk membuat rental baru -->
-        <a href="{{ route('rental.create') }}" class="btn btn-primary mb-3">Tambah Rental Baru</a>
+        <a href="{{ route('rental.create') }}" class="btn btn-primary mb-3">Tambah Bilik Baru</a>
 
         <!-- Tampilkan daftar rental jika ada -->
         @if($rentals->isEmpty())
